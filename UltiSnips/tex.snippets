@@ -1,0 +1,76 @@
+snippet chen "Signature"
+Yours sincerely,
+
+Zhixin Chen
+endsnippet
+
+snippet today "Date"
+`date +%F`
+endsnippet
+
+
+snippet package "package"
+\usepackage{graphicx}
+\usepackage{caption2}
+\usepackage{subfigure}
+\usepackage{float}
+\usepackage{indentfirst}
+endsnippet
+
+
+snippet beg "begin{} / end{}" b
+\begin{$1}
+	$0
+\end{$1}
+endsnippet
+
+snippet $$ "$$"
+$$
+	$0
+$$
+endsnippet
+
+
+snippet chinese "chinese" b
+\documentclass{article}
+\usepackage{CJKutf8}
+\begin{document}
+	\begin{CJK}{UTF8}{gkai}
+		$0
+	\end{CJK}
+\end{document}
+endsnippet
+
+
+snippet kai "kai"
+\begin{CJK}{UTF8}{gkai}
+	$0
+\end{CJK}
+endsnippet
+
+
+snippet song "song"
+\begin{CJK}{UTF8}{gbsn}
+	$0
+\end{CJK}
+endsnippet
+
+
+snippet sec "sec"
+\section{$0}
+endsnippet
+
+snippet subsec "subsec"
+\subsection{$0}
+endsnippet
+
+
+snippet graph "graph"
+\begin{figure}$1 %figure环境，可于此处加[h]来固定位置。
+	\centering  %使图片居中显示
+	\includegraphics[scale=0.5]{$2} %图片尺寸及位置。
+	\caption{$3} %图题
+	\label{$4} %标签，方便在文章中引用图片。
+\end{figure} %figure环境$0
+endsnippet
+
