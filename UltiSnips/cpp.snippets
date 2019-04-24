@@ -1,0 +1,41 @@
+snippet main "main"
+#include <iostream>
+
+int main()
+{
+	$0
+	return 0;
+}
+endsnippet
+
+snippet # "#"
+#include <$0>
+endsnippet
+
+snippet #def "#def"
+#define 
+endsnippet
+
+snippet class "class"
+class $1
+{
+public:
+	$1();
+	$1(const $1&);
+	$1& operator=(const $1&);
+	~$1();
+protect:
+private:
+
+}
+endsnippet
+
+snippet std "std"
+using namespace std;
+endsnippet
+
+snippet if "if"
+if (${1:true}){
+	$0
+}
+endsnippet

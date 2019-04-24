@@ -9,12 +9,18 @@ snippet today "Date"
 endsnippet
 
 
+snippet \e "e"
+\varepsilon
+endsnippet
+
+
 snippet package "package"
 \usepackage{graphicx}
 \usepackage{caption2}
 \usepackage{subfigure}
 \usepackage{float}
 \usepackage{indentfirst}
+\usepackage{amsmath}
 endsnippet
 
 
@@ -34,6 +40,12 @@ endsnippet
 snippet chinese "chinese" b
 \documentclass{article}
 \usepackage{CJKutf8}
+\usepackage{graphicx}
+\usepackage{caption2}
+\usepackage{subfigure}
+\usepackage{float}
+\usepackage{indentfirst}
+\usepackage{amsmath}
 \begin{document}
 	\begin{CJK}{UTF8}{gkai}
 		$0
@@ -68,9 +80,15 @@ endsnippet
 snippet graph "graph"
 \begin{figure}$1 %figure环境，可于此处加[h]来固定位置。
 	\centering  %使图片居中显示
-	\includegraphics[scale=0.5]{$2} %图片尺寸及位置。
+	\includegraphics[scale=0.5]{$2.png} %图片尺寸及位置。
 	\caption{$3} %图题
 	\label{$4} %标签，方便在文章中引用图片。
 \end{figure} %figure环境$0
+endsnippet
+
+snippet equation "equation"
+\begin{equation}
+	$0
+\end{equation}
 endsnippet
 
