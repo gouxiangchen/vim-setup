@@ -21,6 +21,10 @@ snippet package "package"
 \usepackage{float}
 \usepackage{indentfirst}
 \usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{algorithm}  
+\usepackage{algorithmicx}  
+\usepackage{algpseudocode}  
 endsnippet
 
 
@@ -46,6 +50,16 @@ snippet chinese "chinese" b
 \usepackage{float}
 \usepackage{indentfirst}
 \usepackage{amsmath}
+\usepackage{algorithm}  
+\usepackage{algorithmicx}  
+\usepackage{algpseudocode}  
+\usepackage{amssymb}
+
+
+\renewcommand{\today}{\number\year 年 \number\month 月 \number\day 日}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}  % Use Input in the format of Algorithm  
+\renewcommand{\algorithmicensure}{\textbf{Output:}} % Use Output in the format of Algorithm  
+
 \begin{document}
 	\begin{CJK}{UTF8}{gkai}
 		$0
@@ -92,3 +106,33 @@ snippet equation "equation"
 \end{equation}
 endsnippet
 
+snippet para "para"
+\paragraph{$0}
+endsnippet
+
+snippet title "title"
+\title{$1}  %文章标题
+\author{$2}   %作者的名称
+\date{${3:\today}}       %日期
+\maketitle          %添加这一句才能够显示标题等信息
+
+endsnippet
+
+snippet algorithm "algorithm"
+\begin{algorithm}[H]
+	\caption{$4}
+	\label{$5}
+	\begin{algorithmic}[1]
+		\Require $1 %输入
+		\Ensure $2  %输出
+		\Function {$3}{$1}
+			\State  %变量赋值
+			\If{}
+
+			\EndIf
+
+			\State \Return{}
+		\EndFunction
+	\end{algorithmic}
+\end{algorithm}
+endsnippet
