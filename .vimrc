@@ -19,7 +19,6 @@ filetype plugin indent on
 "set cindent		"以c语言风格自动缩进
 "set smartindent	"自动识别以#开头的注释，不进行换行
 
-
 "===========================选择solarized的模式========================== 
 syntax enable  
 syntax on 
@@ -36,6 +35,24 @@ highlight NonText guibg=#060606
 highlight Folded  guibg=#0A0A0A guifg=#9090D0 
 "set t_Co=256 
 "set background=dark 
+"
+"=============================key map====================================
+
+"窗口大小变化仅在sp/vsp分屏下使用
+"竖直方向窗口大小变化 即行数变化
+nmap v+ :resize +5<CR>
+nmap v- :resize -5<CR>
+"水平方向变化，列数
+nmap h+ :vertical resize +5<CR>
+nmap h- :vertical resize -5<CR>
+"所有窗口大小相等
+nmap == <C-W>=
+
+"显示文件类型
+nmap ft :echo &filetype<CR>
+
+"===========================plug in=====================================
+"
 "
 call plug#begin('~/.vim/plugged')
 
