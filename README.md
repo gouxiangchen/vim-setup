@@ -18,3 +18,8 @@ ftplug/tex.vim UltiSnips/ 这两个文件夹可能是不存在的，需要自己
 3、插件的安装
 
 在vim中使用PlugInstall安装
+
+4、vim-tex的默认编译器修改 ： ~/.vim/plugged/vimtex/ftplugin/tex.vim 
+添加 ： let g:Tex_CompileRule_pdf = 'xelatex -synctex=1 --interaction=nonstopmode $*'
+
+latex texmf模板、宏包更新命令：sudo mktexlsr
