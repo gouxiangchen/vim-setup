@@ -8,6 +8,10 @@ snippet today "Date"
 `date +%F`
 endsnippet
 
+snippet content "content"
+\tableofcontents
+\newpage
+endsnippet
 
 snippet \e "e"
 \varepsilon
@@ -54,17 +58,74 @@ snippet chinese "chinese" b
 \usepackage{algorithmicx}  
 \usepackage{algpseudocode}  
 \usepackage{amssymb}
+\usepackage[colorlinks, linkcolor=black]{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%
+ % 修改标题文字到中文。
+ %%%%%%%%%%%%%%%%%%%%%%%
 \renewcommand{\today}{\number\year 年 \number\month 月 \number\day 日}
 \renewcommand{\algorithmicrequire}{\textbf{Input:}}  % Use Input in the format of Algorithm  
 \renewcommand{\algorithmicensure}{\textbf{Output:}} % Use Output in the format of Algorithm  
+\renewcommand{\contentsname}{目录}
+\renewcommand{\abstractname}{摘要}
+\renewcommand{\refname}{参考文献}   % 将References改为参考文献
+\renewcommand{\indexname}{索引}
+\renewcommand{\figurename}{图}
+\renewcommand{\tablename}{表}
+\renewcommand{\appendixname}{附录}
+
+ %%%%%%%%%%%%%
+ % 页边距设置
+ %%%%%%%%%%%%%
+\addtolength{\topmargin}{-54pt}
+\setlength{\oddsidemargin}{0.63cm}  % 3.17cm - 1 inch
+\setlength{\evensidemargin}{\oddsidemargin}
+\setlength{\textwidth}{14.66cm}
+\setlength{\textheight}{24.00cm}    % 24.62
+
+ %%%%%%%%%%%%%%%%%%%%%%
+% 设置字号 使用方法：{\xiaosi text}
+ %%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\chuhao}{\fontsize{42pt}{\baselineskip}\selectfont}
+\newcommand{\xiaochuhao}{\fontsize{36pt}{\baselineskip}\selectfont}
+\newcommand{\yihao}{\fontsize{28pt}{\baselineskip}\selectfont}
+\newcommand{\erhao}{\fontsize{21pt}{\baselineskip}\selectfont}
+\newcommand{\xiaoerhao}{\fontsize{18pt}{\baselineskip}\selectfont}
+\newcommand{\sanhao}{\fontsize{15.75pt}{\baselineskip}\selectfont}
+\newcommand{\sihao}{\fontsize{14pt}{\baselineskip}\selectfont}
+\newcommand{\xiaosihao}{\fontsize{12pt}{\baselineskip}\selectfont}
+\newcommand{\wuhao}{\fontsize{10.5pt}{\baselineskip}\selectfont}
+\newcommand{\xiaowuhao}{\fontsize{9pt}{\baselineskip}\selectfont}
+\newcommand{\liuhao}{\fontsize{7.875pt}{\baselineskip}\selectfont}
+\newcommand{\qihao}{\fontsize{5.25pt}{\baselineskip}\selectfont}
+
+ %%%%%%%%%%%
+ % 段首缩进
+ %%%%%%%%%%%
+\makeatletter
+\let\@afterindentfalse\@afterindenttrue
+\@afterindenttrue
+\makeatother
+\setlength{\parindent}{2em}  %中文缩进两个汉字位
+
 
 \begin{document}
 	\begin{CJK}{UTF8}{gkai}
 		$0
+		\newpage
 	\end{CJK}
 \end{document}
+
+endsnippet
+
+snippet zuozhe "zuozhe"
+\title{$1}
+\author{陈智鑫 \\\\电子邮件: zhixinc@buaa.edu.cn\\\\ 手机：13020037060 \\\\学号: SY1807513\\\\[2ex]
+	\xiaosihao 软件开发环境国家重点实验室\\\\[2ex]
+}
+\date{$0}
 endsnippet
 
 
@@ -107,7 +168,7 @@ snippet equation "equation"
 endsnippet
 
 snippet para "para"
-\paragraph{$0}
+\paragraph{$1}\ $0
 endsnippet
 
 snippet title "title"
@@ -136,3 +197,37 @@ snippet algorithm "algorithm"
 	\end{algorithmic}
 \end{algorithm}
 endsnippet
+
+snippet box "box"
+`!p 
+slist = t[1].split('\n')
+llist = []
+for s in slist:
+	llist.append(int((len(s.encode('utf-8'))-len(s))/2) + len(s))
+snip.rv = ' ' + '%' * (max(llist) + 3) + '%\n' + ' %' + ' ' * (max(llist) + 2) + '%'`
+ % $1 %
+`!p 
+slist = t[1].split('\n')
+llist = []
+for s in slist:
+	llist.append(int((len(s.encode('utf-8'))-len(s))/2) + len(s))
+snip.rv = ' %' + ' ' * (max(llist) + 2) + '%\n' + ' ' + '%' * (max(llist) + 3) + '%'`$0
+endsnippet
+
+snippet py "py"
+\begin{colorboxed}  
+	\begin{lstlisting}[language={Python},numbers=left,numberstyle=\tiny,%frame=shadowbox,
+		rulesepcolor=\color{red!20!green!20!blue!20},  
+		keywordstyle=\color{blue!70!black},  
+		commentstyle=\color{gray},
+		escapeinside=\`\`,
+		breaklines=true,
+		frame=single,
+		tabsize=4,
+		basicstyle=\ttfamily]
+$0
+	\end{lstlisting}
+\end{colorboxed}
+endsnippet
+
+

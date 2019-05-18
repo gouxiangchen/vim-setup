@@ -1,0 +1,11 @@
+snippet init "initialize simplest type"
+${1:main}:$1.o
+	g++ *.o -o $1
+
+$1.o:$1.cpp
+	g++ -c $1.cpp
+
+clean:
+	rm *.o $1
+
+endsnippet

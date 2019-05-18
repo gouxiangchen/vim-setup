@@ -51,6 +51,18 @@ nmap == <C-W>=
 "显示文件类型
 nmap ft :echo &filetype<CR>
 
+
+nmap e :call AutoSpell()<CR><F12>
+
+func AutoSpell()
+	let s = &spell
+	if s == 0
+		noremap <F12> :set spell<CR>
+	else
+		noremap <F12> :set nospell<CR>
+	endif
+endfunc
+
 "===========================plug in=====================================
 "
 "

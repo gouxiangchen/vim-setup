@@ -1,0 +1,18 @@
+snippet init "cmake_init" b
+cmake_minimum_required(VERSION ${1:2.8.2})
+project(${2:ProjectName})
+
+add_subdirectory(${0:src})
+
+add_executable($2 $3)
+
+endsnippet
+
+snippet include "include"
+include_directories ($0)
+endsnippet
+
+snippet lib "lib"
+target_link_libraries ($1 $2)
+endsnippet
+

@@ -1,0 +1,20 @@
+snippet box "Box"
+`!p 
+slist = t[1].split('\n')
+llist = []
+for s in slist:
+	llist.append(int((len(s.encode('utf-8'))-len(s))/2) + len(s))
+snip.rv = ' ' + '#' * (max(llist) + 2) + '#'`
+ # $1
+`!p 
+slist = t[1].split('\n')
+llist = []
+for s in slist:
+	llist.append(int((len(s.encode('utf-8'))-len(s))/2) + len(s))
+snip.rv = ' ' + '#' * (max(llist) + 2) + '#'`
+$0
+endsnippet
+
+snippet from "from"
+from $1 import $0
+endsnippet

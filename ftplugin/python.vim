@@ -1,6 +1,6 @@
-nmap <C-m> :call SmartCommentpy()<CR><F12>
+nmap <C-L> :call SmartCommentpy()<CR><F12>
 
-imap <C-m> <Home>#<Space>
+imap <C-L> <Home>#<Space>
 
 func! SmartCommentpy()
 	let s = getline(".")
