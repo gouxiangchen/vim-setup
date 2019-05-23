@@ -11,3 +11,7 @@ map <F5> <ESC>:cc<CR>                "看完整的错误信息
 imap <F5> <ESC>:cc<CR>
 map <F6> <ESC>:clist<CR>             "看所有错误信息 
 imap <F6> <ESC>:clist<CR>
+
+map <F7> <ESC>:% s/[^\x00-\xff]//gn<CR>
+imap <F7> <ESC>:% s/[^\x00-\xff]//gn<CR>
+
