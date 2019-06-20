@@ -3,6 +3,9 @@
 
 按以下步骤安装，实现vim + Latex + Ultisnips的组合，可以实现支持中文的Latex文档的编写、编译（其中包含个人的配置，按需修改）
 
+## 0、texlive 安装
+sudo apt-get install texlive-full
+
 ## 1、vim安装 
 sudo apt-get install vim
 
