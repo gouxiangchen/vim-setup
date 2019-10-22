@@ -8,8 +8,18 @@ int main()
 }
 endsnippet
 
+snippet null "null" i
+nullptr
+endsnippet
+
+snippet else "else"
+else {
+	$0
+}
+endsnippet
+
 snippet # "#"
-#include <$0>
+#include <$1>$0
 endsnippet
 
 snippet #def "#def"
@@ -61,5 +71,12 @@ for s in slist:
 	llist.append(int((len(s.encode('utf-8'))-len(s))/2) + len(s))
 snip.rv = ' ' + '*' * (max(llist) + 2) + '*/'`
 $0
+endsnippet
+
+snippet void "void"
+void $1($2)
+{
+	$0
+}
 endsnippet
 

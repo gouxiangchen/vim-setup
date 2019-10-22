@@ -13,8 +13,17 @@ snippet content "content"
 \newpage
 endsnippet
 
+snippet mulu "mulu"
+\tableofcontents
+\newpage
+endsnippet
+
 snippet \e "e"
 \varepsilon
+endsnippet
+
+snippet label "label"
+\label{$1}$0
 endsnippet
 
 
@@ -38,7 +47,7 @@ snippet beg "begin{} / end{}" b
 \end{$1}
 endsnippet
 
-snippet $$ "$$"
+snippet $$ "$$" i
 $$
 	$0
 $$
@@ -68,6 +77,7 @@ snippet chinese "chinese" b
 \usepackage{lipsum}
 \usepackage{threeparttable}
 \usepackage{booktabs}
+\usepackage{enumerate}
 
 %%%%%%%%%%%%%%%%%%%%%%%%
  % 修改标题文字到中文。
@@ -129,12 +139,22 @@ endsnippet
 
 snippet zuozhe "zuozhe"
 \title{$1}
-\author{陈智鑫 \\\\电子邮件: zhixinc@buaa.edu.cn\\\\ 手机：13020037060 \\\\学号: SY1807513\\\\[2ex]
+\author{陈智鑫 \\\\email: zhixinc@buaa.edu.cn\\\\ phone: 13020037060 \\\\学号: SY1807513\\\\[2ex]
 	\xiaosihao 软件开发环境国家重点实验室\\\\[2ex]
 }
-\date{$0}
+\date{$2}$0
 endsnippet
 
+snippet fengmian "fengmian"
+\title{$1}
+\author{陈智鑫 \\\\email: zhixinc@buaa.edu.cn\\\\ phone: 13020037060 \\\\学号: SY1807513\\\\[2ex]
+	\xiaosihao 软件开发环境国家重点实验室\\\\[2ex]
+	{\protect\includegraphics[scale=0.5]{${2:beihang.pdf}}}
+}
+\date{$3}
+\maketitle
+\newpage$0
+endsnippet
 
 snippet kai "kai"
 \begin{CJK}{UTF8}{gkai}
@@ -160,12 +180,34 @@ endsnippet
 
 
 snippet graph "graph"
-\begin{figure}$1 %figure环境，可于此处加[h]来固定位置。
+\begin{figure}[H] %figure环境，可于此处加[h]来固定位置。
 	\centering  %使图片居中显示
-	\includegraphics[scale=0.5]{$2.png} %图片尺寸及位置。
-	\caption{$3} %图题
-	\label{$4} %标签，方便在文章中引用图片。
+	\includegraphics[scale=0.5]{$1.png} %图片尺寸及位置。
+	\caption{$2} %图题
+	\label{$3} %标签，方便在文章中引用图片。
 \end{figure} %figure环境$0
+endsnippet
+
+snippet multigraph "multigraph"
+\begin{figure}[H] %figure环境，可于此处加[h]来固定位置。
+	\centering  %使图片居中显示
+	\subfigure[$1]{ % 填子图图题
+		\includegraphics[scale=0.5]{$2.png}
+	}
+	\quad
+	\subfigure[$3]{
+		\includegraphics[scale=0.5]{$4.png}
+	}
+	\caption{$5} %图题
+	\label{$6} %标签，方便在文章中引用图片。
+\end{figure}
+endsnippet
+
+snippet addgraph "addgraph"
+\quad
+\subfigure[$1]{
+	\includegraphics[scale=0.5]{$2.png}
+}
 endsnippet
 
 snippet equation "equation"
@@ -205,7 +247,7 @@ snippet algorithm "algorithm"
 \end{algorithm}
 endsnippet
 
-snippet box "box"
+snippet box "box" b
 `!p 
 slist = t[1].split('\n')
 llist = []
@@ -224,6 +266,23 @@ endsnippet
 snippet py "py"
 \begin{colorboxed}  
 	\begin{lstlisting}[language={Python},numbers=left,numberstyle=\tiny,%frame=shadowbox,
+		rulesepcolor=\color{red!20!green!20!blue!20},  
+		keywordstyle=\color{blue!70!black},  
+		commentstyle=\color{gray},
+		escapeinside=\`\`,
+		breaklines=true,
+		frame=single,
+		tabsize=4,
+		basicstyle=\ttfamily]
+$0
+	\end{lstlisting}
+\end{colorboxed}
+endsnippet
+
+
+snippet java "java"
+\begin{colorboxed}  
+	\begin{lstlisting}[language={Java},numbers=left,numberstyle=\tiny,%frame=shadowbox,
 		rulesepcolor=\color{red!20!green!20!blue!20},  
 		keywordstyle=\color{blue!70!black},  
 		commentstyle=\color{gray},
@@ -268,11 +327,50 @@ snippet table "table"
 	\caption{$0}
 	\begin{tabular}{ccc}
 		\toprule % 表头
-		1 & 2 & 3
+		1 & 2 & 3\\\\
 		\midrule % 表项
-		4 & 5 & 6
+		4 & 5 & 6\\\\
 		\botrule % 表尾
-		7 & 8 & 9
+		7 & 8 & 9\\\\
 	\end{tabular}
 \end{table}
+endsnippet
+
+snippet red "color-red" i
+{\color{red} $0}
+endsnippet
+
+snippet blue "blue" i
+{\color{blue} $0}
+endsnippet
+
+snippet yellow "yellow" i
+{\color{yellow} $0}
+endsnippet
+
+snippet luotianyi "luotianyi" i
+{\color[HTML]{66CCFF} $0}
+endsnippet
+
+snippet chuyin "chuyin" i
+{\color[HTML]{66FFCC} $0}
+endsnippet
+snippet redbox "redbox"
+\colorbox{red}{
+	\vbox{
+		$0
+	}
+}
+endsnippet
+
+snippet tianyibox "tianyibox"
+\colorbox[HTML]{66CCFF}{
+	\vbox{
+		$0
+	}
+}
+endsnippet
+
+snippet bf "bf" i
+\textbf{$1}$0
 endsnippet

@@ -3,7 +3,7 @@ ${1:main}:$1.o
 	g++ *.o -o $1
 
 $1.o:$1.cpp
-	g++ -c $1.cpp
+	g++ -c $1.cpp -std=c++11
 
 clean:
 	rm *.o $1
