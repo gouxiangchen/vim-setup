@@ -9,7 +9,7 @@ sudo apt-get install texlive-full
 ## 1、vim安装 
 sudo apt-get install vim
 
-## 2、插件管理软件vim-plg安装
+## 2、插件管理软件vim-plug安装
 在终端输入
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs 
@@ -61,3 +61,6 @@ call plug#end()
 
 ## 额外
 当安装新的latex模板或者宏包时，需要进行更新，更新命令：sudo mktexlsr
+
+## update
+为了能够在windows系统中方便地编写Latex，添加了vscode的snippets…
