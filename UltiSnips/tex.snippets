@@ -81,6 +81,7 @@ snippet chinese "chinese" b
 \usepackage{titlesec}
 \usepackage{titletoc}
 \usepackage{multicol}
+\usepackage{xcolor-material}
 
 %%%%%%%%%%%%%%%%%%%%%%%%
  % 修改标题文字到中文。
@@ -95,6 +96,32 @@ snippet chinese "chinese" b
 \renewcommand{\figurename}{图}
 \renewcommand{\tablename}{表}
 \renewcommand{\appendixname}{附录}
+
+%%%%%%%%%%%%%
+%  代码格式
+%%%%%%%%%%
+\colorlet{PrimaryColor}{MaterialBlue900}
+\lstset{
+    frame=single,
+    frameround=tttt,
+    framesep=1pt,
+    framextopmargin=6pt,
+    framexbottommargin=6pt,
+    tabsize=4,
+    breaklines=true,
+    upquote=true,
+    captionpos=b,
+    basicstyle=\footnotesize,
+    backgroundcolor=\color{MaterialBlue50},
+    rulecolor=\color{MaterialBlue},
+    identifierstyle=\color{MaterialBlue800},
+    commentstyle=\itshape\color{MaterialGreen700},
+    stringstyle=\bfseries\color{MaterialAmber800},
+    keywordstyle=\bfseries\color{MaterialPurple700},
+    numberstyle=\bfseries\color{MaterialGrey800},
+    morecomment=[l]{//},
+    morecomment=[s]{/*}{*/},
+}
 
  %%%%%%%%%%%%%
  % 页边距设置
@@ -155,10 +182,28 @@ snippet chinese "chinese" b
 \makeatother
 \setlength{\parindent}{2em}  %中文缩进两个汉字位
 
+% 内置提示框
+\newtcolorbox{tiuikl}[1]{
+skin=empty,
+top=0pt,
+bottom=0pt,
+toprule=0pt,
+bottomrule=0pt,
+leftrule=0pt,
+rightrule=0pt,
+borderline west={2pt}{0pt}{#1},
+}
+
+% 提示
+\newenvironment{tiui}
+{\begin{tiuikl}{MaterialBlue}
+    \textcolor{MaterialBlue}{注：}
+}
+{\end{tiuikl}}
 
 \begin{document}
     \begin{CJK}{UTF8}{gkai}
-        	$0
+        $0
         \newpage
     \end{CJK}
 \end{document}
@@ -192,6 +237,7 @@ snippet chinese2 "chinese2" b
 \usepackage{titlesec}
 \usepackage{titletoc}
 \usepackage{multicol}
+\usepackage{xcolor-material}
 
 %%%%%%%%%%%%%%%%%%%%%%%%
  % 修改标题文字到中文。
@@ -218,6 +264,32 @@ snippet chinese2 "chinese2" b
 \setlength{\oddsidemargin}{-.5cm}  % 3.17cm - 1 inch
 \setlength{\evensidemargin}{\oddsidemargin}
 \setlength{\textwidth}{17.00cm}
+
+%%%%%%%%%%%%%
+%  代码格式
+%%%%%%%%%%
+\colorlet{PrimaryColor}{MaterialBlue900}
+\lstset{
+    frame=single,
+    frameround=tttt,
+    framesep=1pt,
+    framextopmargin=6pt,
+    framexbottommargin=6pt,
+    tabsize=4,
+    breaklines=true,
+    upquote=true,
+    captionpos=b,
+    basicstyle=\footnotesize,
+    backgroundcolor=\color{MaterialBlue50},
+    rulecolor=\color{MaterialBlue},
+    identifierstyle=\color{MaterialBlue800},
+    commentstyle=\itshape\color{MaterialGreen700},
+    stringstyle=\bfseries\color{MaterialAmber800},
+    keywordstyle=\bfseries\color{MaterialPurple700},
+    numberstyle=\bfseries\color{MaterialGrey800},
+    morecomment=[l]{//},
+    morecomment=[s]{/*}{*/},
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 % 定制目录。
@@ -271,6 +343,25 @@ snippet chinese2 "chinese2" b
 
 \setlength\columnseprule{.4pt} % 双栏中间的竖线
 
+% 内置提示框
+\newtcolorbox{tiuikl}[1]{
+skin=empty,
+top=0pt,
+bottom=0pt,
+toprule=0pt,
+bottomrule=0pt,
+leftrule=0pt,
+rightrule=0pt,
+borderline west={2pt}{0pt}{#1},
+}
+
+% 提示
+\newenvironment{tiui}
+{\begin{tiuikl}{MaterialBlue}
+    \textcolor{MaterialBlue}{注：}
+}
+{\end{tiuikl}}
+
 \begin{document}
     \begin{CJK}{UTF8}{gkai}
     \begin{multicols}{2}
@@ -305,6 +396,12 @@ snippet kai "kai"
 \begin{CJK}{UTF8}{gkai}
 	$0
 \end{CJK}
+endsnippet
+
+snippet highlight "highlight"
+\begin{tiui}
+	$0            
+\end{tiui}
 endsnippet
 
 
@@ -464,6 +561,19 @@ snippet block "beautiful block"
 \begin{$1}
 $0
 \end{$1}
+endsnippet
+
+snippet multicol "multicol"
+\begin{multicols}{$1}
+	$0
+\end{multicols}
+endsnippet
+
+snippet code "code"
+% 后面括号中填写语言，如C，py，java
+\begin{lstlisting}[language={$1}]
+	$0
+\end{lstlisting}
 endsnippet
 
 snippet table "table"
