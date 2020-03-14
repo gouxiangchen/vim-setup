@@ -53,14 +53,11 @@ call plug#end()
 
 本仓库中的配置是属于个人习惯，按需要进行使用和修改
 
-## 5、vim-tex的默认编译器修改
-在 ~/.vim/plugged/vimtex/ftplugin/tex.vim 文件中
-添加 ： let g:Tex_CompileRule_pdf = 'xelatex -synctex=1 --interaction=nonstopmode $*'
-
-否则将无法支持中文文档的编译
 
 ## 额外
 当安装新的latex模板或者宏包时，需要进行更新，更新命令：sudo mktexlsr
+
+在ubuntu下使用本仓库中的Ultisnips时，可能会出现一个latex库文件xcolor-material找不到的问题，相关的code调色将会编译不通过。请在ubuntu安装xcolor-material宏包，具体安装方法是下载xcolor-material包放在正确的目录（可以在ubuntu下find一下其他宏包的位置，放进去即可）下，再运行sudo mktexlsr命令更新一下宏包，就可以用了。
 
 ## update
 为了能够在windows系统中方便地编写Latex，添加了vscode的snippets…
